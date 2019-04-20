@@ -5,7 +5,7 @@
 // *-----------------------------*
 // WITH additional data structure
 // *-----------------------------*
-function uniqueChar(str) {
+function uniqueChar1(str) {
   let charsCount = {};
 
   for (let i = 0; i < str.length; i++) {
@@ -28,8 +28,6 @@ function uniqueChar(str) {
   return true;
 }
 
-// console.log(uniqueChar("sttr"));
-
 // Analysis: 
 // Time complexity = O(n)
 // Space complexity = O(n)
@@ -38,12 +36,30 @@ function uniqueChar(str) {
 // WITHOUT additional data structure
 // *--------------------------------*
 
-function uniqueChar(str) {
+function uniqueChar2(str) {
+  for (let i = 0; i < str.length; i++) {
+    let char1 = str[i];
 
+    for (let j = i + 1; j < str.length; j++) {
+      let char2 = str[j];
+
+      if (char1 === char2) {
+        return false;
+      }
+    }
+  }
+
+  return true;
 }
 
-// console.log(uniqueChar("sttr"));
 
 // Analysis: 
 // Time complexity = O(n)
 // Space complexity = O(n)
+
+
+// TEST CASES
+console.log(uniqueChar1("str"));
+console.log(uniqueChar1("sttr"));
+console.log(uniqueChar2("str"));
+console.log(uniqueChar2("sttr"));
