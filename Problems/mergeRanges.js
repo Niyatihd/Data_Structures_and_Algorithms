@@ -71,7 +71,9 @@ function merge(leftArr, rightArr) {
 }
 
 
-function mergeRanges(arr) {
+function mergeRanges(objArr) {
+  // Create a deep copy of the meetings array
+  const arr = JSON.parse(JSON.stringify(objArr));
 
   // Sort by start time
   const sortedRanges = arr.sort((a, b) => {
@@ -79,7 +81,7 @@ function mergeRanges(arr) {
   });
 
   // OR
-  // const sortedRanges = mergeSort(arr);
+  // const sortedRanges = mergeSort(arr); //returns new array, therefore no need to make deep copy
 
 
   let result = [];
