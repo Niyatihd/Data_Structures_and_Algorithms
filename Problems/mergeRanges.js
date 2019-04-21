@@ -105,7 +105,15 @@ function mergeRanges(objArr) {
   return result;
 }
 
-// TEST CASES
+// *-------------*
+// Analysis: 
+// *-------------*
+// Time complexity = O(log(n))
+// Space complexity = O(1)
+
+// *-------------*
+//   TEST CASES
+// *-------------*
 const testArr = [{
     startTime: 0,
     endTime: 1

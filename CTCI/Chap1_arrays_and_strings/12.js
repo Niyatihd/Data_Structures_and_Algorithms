@@ -20,12 +20,14 @@ function reversestr(str) {
   return tempArr.join("");
 }
 
+// *-------------*
 // Analysis: 
+// *-------------*
 // Time complexity = O(n)
 // Space complexity = O(n)
 
 // *-------------*
-// TEST CASES
+//   TEST CASES
 // *-------------*
 console.log(reversestr("strong"));
 console.log(reversestr("abcba"));

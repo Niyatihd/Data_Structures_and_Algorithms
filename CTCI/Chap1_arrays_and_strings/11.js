@@ -52,13 +52,14 @@ function uniqueChar2(str) {
   return true;
 }
 
-
+// *-------------*
 // Analysis: 
+// *-------------*
 // Time complexity = O(n)
 // Space complexity = O(n)
 
 // *-------------*
-// TEST CASES
+//   TEST CASES
 // *-------------*
 console.log(uniqueChar1("str"));
 console.log(uniqueChar1("sttr"));

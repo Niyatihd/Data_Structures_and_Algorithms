@@ -36,12 +36,14 @@ function merge(leftArr, rightArr) {
   return merged.concat(leftArr).concat(rightArr);
 }
 
+// *-------------*
 // Analysis: 
+// *-------------*
 // Time complexity = O(log(n))
 // Space complexity = O(1)
 
 // *-------------*
-// TEST CASES
+//   TEST CASES
 // *-------------*
 console.log(mergeSort([])); // => []
 console.log(mergeSort([1, 2, 3, 4, 5])); // => [1, 2, 3, 4, 5] 
