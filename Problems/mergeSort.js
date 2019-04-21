@@ -47,3 +47,4 @@ console.log(mergeSort([1, 2, 3, 4, 5])); // => [1, 2, 3, 4, 5]
 console.log(mergeSort([9, 2, 3, 8, 5, 7, 5])); // => [2, 3, 5, 5, 7, 8, 9]
 console.log(mergeSort([1, 1])); // => [1, 1]
 console.log(mergeSort([10])); // => [10]
+console.log(mergeSort([0, 1, 3, 5, 4, 8, 10, 12, 9, 10])); // => 
