@@ -72,7 +72,16 @@ function merge(leftArr, rightArr) {
 
 
 function mergeRanges(arr) {
-  const sortedRanges = mergeSort(arr);
+
+  // Sort by start time
+  const sortedRanges = arr.sort((a, b) => {
+    return a.startTime - b.startTime;
+  });
+
+  // OR
+  // const sortedRanges = mergeSort(arr);
+
+
   let result = [];
 
   let start = arr[0]["startTime"];
@@ -81,17 +90,24 @@ function mergeRanges(arr) {
   for (let i = 1; i < sortedRanges.length; i++) {
     let nextStart = sortedRanges[i]["startTime"];
     let nextEnd = sortedRanges[i]["endTime"];
+    // console.log("start: " + start);
+    // console.log("end: " + end);
+    // console.log("nextStart: " + nextStart);
+    // console.log("nextEnd: " + nextEnd);
 
     if (start < nextStart && end < nextStart && end < nextEnd) {
+      // console.log("1");
       result.push({
         "startTime": start,
         "endTime": end
       });
       start = nextStart;
       end = nextEnd;
-    } else if (start < nextStart && (end >= nextStart || nextStart - end === 1)) {
+    } else if (start < nextStart && (end >= nextStart || nextStart - end === 1) && end < nextEnd) {
+      // console.log("2");
       end = nextEnd;
     } else if (start > nextStart && nextStart > result[result.length - 1]["endTime"]) {
+      // console.log("3");
       start = nextStart;
 
       if (end < nextEnd) {
@@ -108,9 +124,52 @@ function mergeRanges(arr) {
   return result;
 }
 
-
-
-
 // TEST CASES
+const testArr2 = [{
+    startTime: 1,
+    endTime: 10
+  },
+  {
+    startTime: 2,
+    endTime: 6
+  },
+  {
+    startTime: 3,
+    endTime: 5
+  },
+  {
+    startTime: 7,
+    endTime: 9
+  }
+];
+
+const testArr3 = [{
+  startTime: 1,
+  endTime: 3
+}, {
+  startTime: 2,
+  endTime: 4
+}];
+
+const testArr4 = [{
+  startTime: 1,
+  endTime: 2
+}, {
+  startTime: 2,
+  endTime: 3
+}];
+
+const testArr5 = [{
+  startTime: 1,
+  endTime: 5
+}, {
+  startTime: 2,
+  endTime: 3
+}];
+
 // console.log(mergeSort(testArr));
 console.log(mergeRanges(testArr));
+console.log(mergeRanges(testArr2));
+console.log(mergeRanges(testArr3));
+console.log(mergeRanges(testArr4));
+console.log(mergeRanges(testArr5));
