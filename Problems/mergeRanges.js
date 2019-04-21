@@ -108,8 +108,8 @@ function mergeRanges(objArr) {
 // *-------------*
 // Analysis: 
 // *-------------*
-// Time complexity = O(log(n))
-// Space complexity = O(1)
+// Time complexity = O(nlog(n)) + O(n) = O(nlgn);
+// Space complexity = O(n)
 
 // *-------------*
 //   TEST CASES
