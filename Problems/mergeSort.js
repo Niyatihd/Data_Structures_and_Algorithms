@@ -40,8 +40,9 @@ function merge(leftArr, rightArr) {
 // Time complexity = O(log(n))
 // Space complexity = O(1)
 
-
+// *-------------*
 // TEST CASES
+// *-------------*
 console.log(mergeSort([])); // => []
 console.log(mergeSort([1, 2, 3, 4, 5])); // => [1, 2, 3, 4, 5] 
 console.log(mergeSort([9, 2, 3, 8, 5, 7, 5])); // => [2, 3, 5, 5, 7, 8, 9]

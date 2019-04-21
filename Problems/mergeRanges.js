@@ -15,27 +15,6 @@
 //   { startTime: 9, endTime: 12 },
 // ]
 
-const testArr = [{
-    startTime: 0,
-    endTime: 1
-  },
-  {
-    startTime: 3,
-    endTime: 5
-  },
-  {
-    startTime: 4,
-    endTime: 8
-  },
-  {
-    startTime: 10,
-    endTime: 12
-  },
-  {
-    startTime: 9,
-    endTime: 10
-  },
-];
 
 function mergeSort(arr) {
   // console.log(arr);
@@ -127,6 +106,28 @@ function mergeRanges(objArr) {
 }
 
 // TEST CASES
+const testArr = [{
+    startTime: 0,
+    endTime: 1
+  },
+  {
+    startTime: 3,
+    endTime: 5
+  },
+  {
+    startTime: 4,
+    endTime: 8
+  },
+  {
+    startTime: 10,
+    endTime: 12
+  },
+  {
+    startTime: 9,
+    endTime: 10
+  },
+];
+
 const testArr2 = [{
     startTime: 1,
     endTime: 10

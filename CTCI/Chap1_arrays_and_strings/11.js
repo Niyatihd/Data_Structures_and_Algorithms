@@ -57,8 +57,9 @@ function uniqueChar2(str) {
 // Time complexity = O(n)
 // Space complexity = O(n)
 
-
+// *-------------*
 // TEST CASES
+// *-------------*
 console.log(uniqueChar1("str"));
 console.log(uniqueChar1("sttr"));
 console.log(uniqueChar2("str"));

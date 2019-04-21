@@ -57,8 +57,9 @@ function binarySearchRec(arr, target) {
 // Time complexity = O(log(n))
 // Space complexity = O(1)
 
-
+// *-------------*
 // TEST CASES
+// *-------------*
 console.log(binarySearch([1, 2, 3, 4, 5], 5)); // => 4 
 console.log(binarySearch([1, 2, 3, 4, 5], 2)); // => 1 
 console.log(binarySearch([1, 2, 3, 4, 5], 1)); // => 0
