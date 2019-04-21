@@ -53,7 +53,6 @@ function binarySearchRec(arr, target) {
   }
 }
 
-
 // Analysis: 
 // Time complexity = O(log(n))
 // Space complexity = O(1)
