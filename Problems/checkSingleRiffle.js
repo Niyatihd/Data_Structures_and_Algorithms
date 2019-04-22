@@ -7,13 +7,13 @@ function checkSingleRiffle(shuffledDeck, half1, half2) {
   }
 
   if (shuffledDeck[0] === half1[0]) {
-    shuffledDeck.shift();
+    shuffledDeck.shift(); //Alternatively, take a slice of all three decks to preserve original arrays, but space complexity there would be O(n^2).
     half1.shift();
-    return checkSingleRiffle(shuffledDeck, half1, half2)
+    return checkSingleRiffle(shuffledDeck, half1, half2);
   } else if (shuffledDeck[0] === half2[0]) {
     shuffledDeck.shift();
     half2.shift();
-    return checkSingleRiffle(shuffledDeck, half1, half2)
+    return checkSingleRiffle(shuffledDeck, half1, half2);
   } else {
     return false;
   }
@@ -22,8 +22,8 @@ function checkSingleRiffle(shuffledDeck, half1, half2) {
 // *-------------*
 // Analysis: 
 // *-------------*
-// Time complexity = O(n)
-// Space complexity = O(n)
+// Time complexity = O(n^2)
+// Space complexity = O(1)
 
 // *-------------*
 //   TEST CASES
