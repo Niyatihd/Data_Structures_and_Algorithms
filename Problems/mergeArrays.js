@@ -25,9 +25,34 @@ function mergeArrays(arr1, arr2) {
 // Time complexity = O(x(line 9) + m(line11) + nlgn) = O(nlgn) = O(nlgn) // m is some number which can be considered constant
 // Space complexity = O(n)
 
+function mergeArrays2(arr1, arr2) {
+  // Create a deep copy of the meetings array
+  let merged = [];
+
+  while (arr1.length || arr2.length) {
+    let firstEle1 = arr1[0];
+    let firstEle2 = arr2[0];
+
+    if (firstEle1 < firstEle2) {
+      merged.push(arr1.shift());
+    } else {
+      merged.push(arr2.shift());
+    }
+  }
+
+  return merged;
+}
+
+// *-------------*
+// Analysis: 
+// *-------------*
+// Time complexity = O(n)
+// Space complexity = O(n)
+
 // *-------------*
 //   TEST CASES
 // *-------------*
 const myArray = [3, 4, 6, 10, 11, 15];
 const alicesArray = [1, 5, 8, 12, 14, 19];
 console.log(mergeArrays(myArray, alicesArray));
+console.log(mergeArrays2(myArray, alicesArray));
