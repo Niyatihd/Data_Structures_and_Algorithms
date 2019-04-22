@@ -1,4 +1,4 @@
-const reverseStr = require('../CTCI/Chap1_arrays_and_strings/12_reverseString');
+const reverseStr2 = require('../CTCI/Chap1_arrays_and_strings/12_reverseString');
 
 // Write a function reverseWords() that takes a message as an array of characters and reverses the order of the words in place. String => immutable, Array => mutable
 // ex: let stringToReverse = "cake pound Steal" 
@@ -34,19 +34,23 @@ function reverseWords(sentence) {
 // *-------------*
 
 function reverseWords2(sentence) {
-  let reversedChars = reverseStr(sentence);
+  reverseStr2(sentence, 0, sentence.length - 1);
   let start = 0;
-  let end = 0;
+  // console.log("reversedchars: " + sentence);
 
-  for (let i = 0; i < reversedChars.length; i++) {
+  for (let i = 0; i <= sentence.length; i++) {
 
-    if (i === " " || i === reversedChars.length) {
-      end = i - 1;
-      reverseStr(reversedChars, start, end);
+    if (i === sentence.length || sentence[i] === " ") {
+      reverseStr2(sentence, start, i - 1);
+      start = i + 1;
+      // console.log("i: " + i);
+      // console.log("start: " + start);
+      // console.log(sentence);
     }
+
   }
 
-  return reversedChars;
+  return sentence.join("");
 }
 
 // *-------------*
@@ -59,5 +63,7 @@ function reverseWords2(sentence) {
 //   TEST CASES
 // *-------------*
 let stringToReverse = "cake pound Steal";
-console.log(reverseWords(stringToReverse));
-console.log(reverseWords2(stringToReverse));
+// console.log(reverseWords(stringToReverse));
+console.log(reverseWords2(["c", "a", "k", "e", " ", "p", "o", "u", "n", "d", " ", "S", "t", "e", "a", "l"]));
+// console.log(reverseWords2(["r", "o", "m", "e", "s", " "]));
+// console.log(reverseStr2("string To Reverse", 0, 16));

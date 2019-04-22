@@ -32,32 +32,31 @@ function reversestr(str) {
 // Reverse string option#2
 // *----------------------*
 
-function reversestr2(str, start, end) {
-  let arr = str.split("");
-  let j = 0;
-
-  for (let i = start; i < end; i++) {
-    let temp = arr[i];
-    arr[i] = arr[end - j];
-    arr[end - j] = temp;
-    j++;
+function reversestr2(arr, start, end) {
+  while (start <= end) {
+    const temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+    start++;
+    end--;
   }
 
-  return arr.join("");
+  return arr;
 }
 
 // *-------------*
 // Analysis: 
 // *-------------*
 // Time complexity = O(n)
-// Space complexity = O(n)
+// Space complexity = O(1)
 
 // *-------------*
 //   TEST CASES
 // *-------------*
-console.log(reversestr("strong"));
-console.log(reversestr("abcba"));
-console.log(reversestr2("strong", 0, 5));
-console.log(reversestr2("abcba", 0, 4));
+// console.log(reversestr("strong"));
+// console.log(reversestr("abcba"));
+// console.log(reversestr2("stronge".split(''), 0, 6));
+// console.log(reversestr2("abcba", 0, 4));
 
-module.exports = reversestr;
+// module.exports = reversestr;
+module.exports = reversestr2;
