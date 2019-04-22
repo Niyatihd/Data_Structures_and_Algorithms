@@ -49,10 +49,32 @@ function mergeArrays2(arr1, arr2) {
 // Time complexity = O(n)
 // Space complexity = O(n)
 
+function mergeThreeArrays(arr1, arr2, arr3) {
+  // Create a deep copy of the meetings array
+  let temp = mergeArrays2(arr1, arr2);
+  // console.log("temp: ");
+  // console.log(temp);
+  let merged = mergeArrays2(temp, arr3);
+  return merged;
+}
+
+// *-------------*
+// Analysis: 
+// *-------------*
+// Time complexity = O(n)
+// Space complexity = O(n)
+
 // *-------------*
 //   TEST CASES
 // *-------------*
 const myArray = [3, 4, 6, 10, 11, 15];
 const alicesArray = [1, 5, 8, 12, 14, 19];
+const myArray1 = [1, 2, 3, 4, 5];
+const alicesArray1 = [6, 7, 8, 9];
+const myArray2 = [1, 2, 3, 4, 5];
+const alicesArray2 = [6, 7, 8, 9];
+const mikesArray2 = [10, 11, 12];
 console.log(mergeArrays(myArray, alicesArray));
 console.log(mergeArrays2(myArray, alicesArray));
+console.log(mergeArrays2(myArray1, alicesArray1));
+console.log(mergeThreeArrays(myArray2, alicesArray2, mikesArray2));
