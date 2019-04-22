@@ -56,7 +56,7 @@ function reverseWords2(sentence) {
 // *-------------*
 // Analysis: 
 // *-------------*
-// Time complexity = O(log(n^2)) //as each time words of different lenths get swapped, it has to make space for longer words replacing shorter ones.
+// Time complexity = O(n(line 37) + m(line44)*n(line43)) = O(n + n) = O(2n) = O(n) // m is some number which can be considered constant
 // Space complexity = O(n)
 
 // *-------------*
