@@ -31,3 +31,5 @@ function reversestr(str) {
 // *-------------*
 console.log(reversestr("strong"));
 console.log(reversestr("abcba"));
+
+module.exports = reversestr;
