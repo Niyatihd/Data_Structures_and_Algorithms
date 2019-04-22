@@ -35,6 +35,17 @@ function reverseWords(sentence) {
 
 function reverseWords2(sentence) {
   let reversedChars = reverseStr(sentence);
+  let start = 0;
+  let end = 0;
+
+  for (let i = 0; i < reversedChars.length; i++) {
+
+    if (i === " " || i === reversedChars.length) {
+      end = i - 1;
+      reverseStr(reversedChars, start, end);
+    }
+  }
+
   return reversedChars;
 }
 
