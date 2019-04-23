@@ -26,3 +26,27 @@ function totalLengthOfMovies(movieLengths, flightLength) {
 // *-------------*
 // Option#2
 // *-------------*
+function totalLengthOfMovies2(movieLengths, flightLength) {
+  let alreadySeen = new Set();
+
+  for (let i = 0; i < movieLengths.length; i++) {
+    let currMovieLen = movieLengths[i];
+    let desiredDiff = flightLength - currMovieLen;
+
+    if (alreadySeen.has(desiredDiff)) {
+      return true;
+    }
+
+    alreadySeen.add(currMovieLen);
+  }
+
+  return false;
+}
+
+// *-------------*
+//   TEST CASES
+// *-------------*
+console.log(totalLengthOfMovies([1, 2, 3, 4, 5], 8));
+console.log(totalLengthOfMovies([1, 2, 3, 4, 5], 11));
+console.log(totalLengthOfMovies2([1, 2, 3, 4, 5], 8));
+console.log(totalLengthOfMovies2([1, 2, 3, 4, 5], 11));
