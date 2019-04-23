@@ -58,13 +58,14 @@ function splitWords(str) {
 function wordCloud2(str) {
   const words = splitWords(str);
 
-  let count = {};
+  // let count = {};
+  let count = new Map();
 
   for (let i = 0; i < words.length; i++) {
-    if (count[words[i]]) {
-      count[words[i]] += 1;
+    if (count.has(words[i])) {
+      count.set(words[i], count.get(words[i]) + 1);
     } else {
-      count[words[i]] = 1;
+      count.set(words[i], 1);
     }
   }
 
