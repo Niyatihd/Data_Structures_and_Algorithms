@@ -60,6 +60,12 @@ function isAnyPermutationPalindrome2(str) {
 }
 
 // *-------------*
+// Analysis: 
+// *-------------*
+// Time complexity = O(n)
+// Space complexity = O(n)
+
+// *-------------*
 //   TEST CASES
 // *-------------*
 // console.log(isAnyPermutationPalindrome("civic"));
