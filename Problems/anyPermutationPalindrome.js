@@ -5,6 +5,10 @@
 // "civil" should return false
 // "livci" should return false
 
+// *-------------*
+// Option#1
+// *-------------*
+
 function isAnyPermutationPalindrome(str) {
   let count = {};
 
@@ -38,9 +42,33 @@ function isAnyPermutationPalindrome(str) {
 // Space complexity = O(n)
 
 // *-------------*
+// Option#2
+// *-------------*
+function isAnyPermutationPalindrome2(str) {
+  let count = new Set();
+
+  for (let i = 0; i < str.length; i++) {
+
+    if (count.has(str[i])) {
+      count.delete(str[i]);
+    } else {
+      count.add(str[i]);
+    }
+  }
+
+  return count.size === 1 || count.size === 0 ? true : false;
+}
+
+// *-------------*
 //   TEST CASES
 // *-------------*
-console.log(isAnyPermutationPalindrome("civic"));
-console.log(isAnyPermutationPalindrome("cici"));
-console.log(isAnyPermutationPalindrome("civil"));
-console.log(isAnyPermutationPalindrome("vciil"));
+// console.log(isAnyPermutationPalindrome("civic"));
+// console.log(isAnyPermutationPalindrome("cici"));
+// console.log(isAnyPermutationPalindrome("civil"));
+// console.log(isAnyPermutationPalindrome("vciil"));
+console.log(isAnyPermutationPalindrome2("civic"));
+console.log(isAnyPermutationPalindrome2("cici"));
+console.log(isAnyPermutationPalindrome2("civil"));
+console.log(isAnyPermutationPalindrome2("vciil"));
+console.log(isAnyPermutationPalindrome2("vciil"));
+console.log(isAnyPermutationPalindrome2("civickl"));
