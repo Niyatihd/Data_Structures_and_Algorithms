@@ -35,6 +35,7 @@ function wordCloud(str) {
 class WordCloudData {
   constructor(str) {
     this.addWordsToMap = new Map();
+    this.populateMap(str);
   }
 
   splitWords(str) {
@@ -63,36 +64,31 @@ class WordCloudData {
   capitalize(word) {
     return word.charAt(0).toUpperCase() + word.slice(1);
   }
-}
 
+  populateMap(str) {
+    const words = this.splitWords(str);
 
+    for (let i = 0; i < words.length; i++) {
+      // console.log(this.addWordsToMap.has(words[i]));
 
-function wordCloud2(str) {
-  const words = splitWords(str);
-
-  // let count = {};
-  let count = new Map();
-
-  for (let i = 0; i < words.length; i++) {
-    // console.log(count.has(words[i]));
-
-    if (count.has(words[i])) {
-      // console.log(1);
-      count.set(words[i], count.get(words[i]) + 1);
-    } else if (count.has(words[i].toLowerCase())) {
-      // console.log(2);
-      let newCount = count.get(words[i].toLowerCase()) + 1;
-      count.set(words[i].toLowerCase(), newCount);
-    } else if (count.has(capitalize(words[i]))) {
-      // console.log(3);
-      count.set(words[i], count.get(capitalize(words[i])) + 1);
-      count.delete(capitalize(words[i]));
-    } else {
-      count.set(words[i], 1);
+      if (this.addWordsToMap.has(words[i])) {
+        // console.log(1);
+        this.addWordsToMap.set(words[i], this.addWordsToMap.get(words[i]) + 1);
+      } else if (this.addWordsToMap.has(words[i].toLowerCase())) {
+        // console.log(2);
+        let newCount = this.addWordsToMap.get(words[i].toLowerCase()) + 1;
+        this.addWordsToMap.set(words[i].toLowerCase(), newCount);
+      } else if (this.addWordsToMap.has(this.capitalize(words[i]))) {
+        // console.log(3);
+        this.addWordsToMap.set(words[i], this.addWordsToMap.get(this.capitalize(words[i])) + 1);
+        this.addWordsToMap.delete(this.capitalize(words[i]));
+      } else {
+        this.addWordsToMap.set(words[i], 1);
+      }
     }
-  }
 
-  return count;
+    return this.addWordsToMap;
+  }
 }
 
 // *-------------*
@@ -110,6 +106,9 @@ function wordCloud2(str) {
 // console.log(splitWords("After beating the eggsd Dana read the next step: "));
 // console.log(splitWords("Add milk and eggs, then add flour and sugar."));
 // console.log(splitWords("I love Nishika. "));
-console.log(wordCloud2("After After after beating the eggs Dana read the next step: egg "));
-console.log(wordCloud2("Add milk and eggs, then add flour and sugar."));
-console.log(wordCloud2("I i love Nishika. "));
+// console.log(wordCloud2("After After after beating the eggs Dana read the next step: egg "));
+// console.log(wordCloud2("Add milk and eggs, then add flour and sugar."));
+// console.log(wordCloud2("I i love Nishika. "));
+
+const test = new WordCloudData("After After after beating the eggs Dana read the next step: egg ");
+console.log(test);
