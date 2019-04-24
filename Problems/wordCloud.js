@@ -29,35 +29,43 @@ function wordCloud(str) {
 }
 
 // *-------------*
-// Option#2
+// Option#2 Class
 // *-------------*
 
-function splitWords(str) {
-  let start = 0;
-  let wordLength = 0;
-  const words = [];
-
-  for (let i = 0; i < str.length; i++) {
-    const char = str[i];
-
-    if (isLetter(char)) {
-      if (wordLength === 0) {
-        start = i;
-      }
-      wordLength += 1;
-    } else if (!isLetter(char)) {
-      let tempWord = str.slice(start, start + wordLength);
-      if (tempWord.length > 0) words.push(str.slice(start, start + wordLength));
-      wordLength = 0;
-    }
+class WordCloudData {
+  constructor(str) {
+    this.addWordsToMap = new Map();
   }
 
-  return words;
+  splitWords(str) {
+    let start = 0;
+    let wordLength = 0;
+    const words = [];
+
+    for (let i = 0; i < str.length; i++) {
+      const char = str[i];
+
+      if (isLetter(char)) {
+        if (wordLength === 0) {
+          start = i;
+        }
+        wordLength += 1;
+      } else if (!isLetter(char)) {
+        let tempWord = str.slice(start, start + wordLength);
+        if (tempWord.length > 0) words.push(str.slice(start, start + wordLength));
+        wordLength = 0;
+      }
+    }
+
+    return words;
+  }
+
+  capitalize(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  }
 }
 
-function capitalize(word) {
-  return word.charAt(0).toUpperCase() + word.slice(1);
-}
+
 
 function wordCloud2(str) {
   const words = splitWords(str);
@@ -91,7 +99,7 @@ function wordCloud2(str) {
 // Analysis: 
 // *-------------*
 // Time complexity = O(n)
-// Space complexity = O(1)
+// Space complexity = O(n)
 
 // *-------------*
 //   TEST CASES
