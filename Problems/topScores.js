@@ -18,11 +18,9 @@ function topScores(unsortedScores, highestPossibleScore) {
 
   for (let score = scores.length - 1; score >= 0; score--) {
 
-    // if (scores[score] > 0) {
     for (let k = 0; k < scores[score]; k++) {
       sorted.push(score);
     }
-    // }
   }
 
   return sorted;
