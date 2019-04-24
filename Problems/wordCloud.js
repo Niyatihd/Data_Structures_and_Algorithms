@@ -55,6 +55,10 @@ function splitWords(str) {
   return words;
 }
 
+function capitalize(word) {
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
 function wordCloud2(str) {
   const words = splitWords(str);
 
@@ -62,8 +66,19 @@ function wordCloud2(str) {
   let count = new Map();
 
   for (let i = 0; i < words.length; i++) {
+    // console.log(count.has(words[i]));
+
     if (count.has(words[i])) {
+      // console.log(1);
       count.set(words[i], count.get(words[i]) + 1);
+    } else if (count.has(words[i].toLowerCase())) {
+      // console.log(2);
+      let newCount = count.get(words[i].toLowerCase()) + 1;
+      count.set(words[i].toLowerCase(), newCount);
+    } else if (count.has(capitalize(words[i]))) {
+      // console.log(3);
+      count.set(words[i], count.get(capitalize(words[i])) + 1);
+      count.delete(capitalize(words[i]));
     } else {
       count.set(words[i], 1);
     }
@@ -87,6 +102,6 @@ function wordCloud2(str) {
 // console.log(splitWords("After beating the eggsd Dana read the next step: "));
 // console.log(splitWords("Add milk and eggs, then add flour and sugar."));
 // console.log(splitWords("I love Nishika. "));
-console.log(wordCloud2("After beating the eggs Dana read the next step: egg "));
+console.log(wordCloud2("After After after beating the eggs Dana read the next step: egg "));
 console.log(wordCloud2("Add milk and eggs, then add flour and sugar."));
-console.log(wordCloud2("I love Nishika. "));
+console.log(wordCloud2("I i love Nishika. "));
