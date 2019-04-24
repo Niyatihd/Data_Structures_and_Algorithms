@@ -35,7 +35,7 @@ function wordCloud(str) {
 class WordCloudData {
   constructor(str) {
     this.addWordsToMap = new Map();
-    this.populateMap(str);
+    this.result = this.populateMap(str);
   }
 
   splitWords(str) {
@@ -111,4 +111,4 @@ class WordCloudData {
 // console.log(wordCloud2("I i love Nishika. "));
 
 const test = new WordCloudData("After After after beating the eggs Dana read the next step: egg ");
-console.log(test);
+console.log(test.result);
