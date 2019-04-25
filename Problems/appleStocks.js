@@ -7,7 +7,7 @@
 // No "shorting"—
 // you need to buy before you can sell.Also, you can 't buy and sell in the same time step—at least 1 minute has to pass.
 
-function maxStockProfit(stockPrices) {
+function minMaxPairs(stockPrices) {
   let minMaxPairs = [];
   let min = stockPrices[0];
   let minId = 0;
@@ -33,19 +33,37 @@ function maxStockProfit(stockPrices) {
   }
 
   if (maxId > minId) minMaxPairs.push([min, max]);
-
   return minMaxPairs;
+}
+
+function maxStockProfit(stockPrices) {
+  let pairs = minMaxPairs(stockPrices);
+  let maxDiff = 0;
+
+  for (let i = 0; i < pairs.length; i++) {
+    let firstEle = pairs[i][0];
+    let secEle = pairs[i][1];
+    let diff = secEle - firstEle;
+
+    if (maxDiff < diff) {
+      maxDiff = diff;
+    }
+  }
+
+  return maxDiff;
 }
 
 // *-------------*
 // Analysis: 
 // *-------------*
-// Time complexity = O(log(n))
-// Space complexity = O(1)
+// Time complexity = O(n)
+// Space complexity = O(n)
 
 // *-------------*
 //   TEST CASES
 // *-------------*
 const stockPrices = [10, 7, 5, 8, 11, 9];
+const stockPrices2 = [3, 5, 4, 3, 2, 6, 1];
 
-console.log(maxStockProfit(stockPrices)); // => 
+console.log(maxStockProfit(stockPrices)); // => 6
+console.log(maxStockProfit(stockPrices2)); // => 4
