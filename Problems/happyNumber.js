@@ -51,6 +51,8 @@ const isHappy = function (n) {
   let num = n;
   let seen = new Set();
 
+  if (num < 1) return false;
+
   while (num) {
     seen.add(num);
     let digits = numToDigits(num);
@@ -69,4 +71,16 @@ const isHappy = function (n) {
   }
 };
 
-// console.log(isHappy(49)); // 16 + 81 = 97, 81 + 49 = 130, 1 + 9 + 0 = 10
+// *-------------*
+// Analysis: 
+// *-------------*
+// Time complexity = O(n)
+// Space complexity = O(n)
+
+// *-------------*
+//   TEST CASES
+// *-------------*
+console.log(isHappy(49)); // 16 + 81 = 97, 81 + 49 = 130, 1 + 9 + 0 = 10
+console.log(isHappy(4));
+console.log(isHappy(0));
+console.log(isHappy(49776));
