@@ -7,24 +7,45 @@ const numToDigits = function (n) { //n = 48
   let num = n;
   let digits = [];
 
-  if (num < 10) {
-    digits.push(num);
-    return digits;
-  }
+  if (num < 1) return digits;
 
-  while (num > 9) {
-    let singleDigit = num % 10;
-    digits.push(singleDigit);
-    num = (num - singleDigit) / 10;
-
+  while (num) {
     if (num < 10) {
       digits.push(num);
       return digits;
     }
-  }
-}
 
-// console.log(numToDigits(4));
+    let singleDigit = num % 10;
+    digits.push(singleDigit);
+    num = (num - singleDigit) / 10;
+  }
+};
+
+// const numToDigits = function (n) { //n = 48
+//   let num = n;
+//   let digits = [];
+
+//   if (num < 10) {
+//     digits.push(num);
+//     return digits;
+//   }
+
+//   while (num > 9) {
+//     let singleDigit = num % 10;
+//     digits.push(singleDigit);
+//     num = (num - singleDigit) / 10;
+
+//     if (num < 10) {
+//       digits.push(num);
+//       return digits;
+//     }
+//   }
+// }
+
+console.log(numToDigits(0));
+console.log(numToDigits(4));
+console.log(numToDigits(45));
+console.log(numToDigits(44545));
 
 const isHappy = function (n) {
   let num = n;
@@ -48,4 +69,4 @@ const isHappy = function (n) {
   }
 };
 
-console.log(isHappy(49)); // 16 + 81 = 97, 81 + 49 = 130, 1 + 9 + 0 = 10
+// console.log(isHappy(49)); // 16 + 81 = 97, 81 + 49 = 130, 1 + 9 + 0 = 10
