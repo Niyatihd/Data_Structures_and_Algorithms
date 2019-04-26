@@ -39,6 +39,12 @@ function minMaxPairs(stockPrices) {
   return minMaxPairs;
 }
 
+// *-------------*
+// Analysis: 
+// *-------------*
+// Time complexity = O(n)
+// Space complexity = O(n)
+
 // console.log(minMaxPairs([5, 3, 1]));
 
 function maxStockProfit(stockPrices) {
@@ -62,7 +68,7 @@ function maxStockProfit(stockPrices) {
 // Analysis: 
 // *-------------*
 // Time complexity = O(n)
-// Space complexity = O(n)
+// Space complexity = O(1)
 
 
 // *-------------*
