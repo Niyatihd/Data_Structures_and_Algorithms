@@ -45,7 +45,8 @@ function minMaxPairs(stockPrices) {
 // Time complexity = O(n)
 // Space complexity = O(n)
 
-// console.log(minMaxPairs([5, 3, 1]));
+console.log(minMaxPairs([10, 7, 5, 8, 11, 9]));
+console.log(minMaxPairs([3, 5, 4, 3, 2, 6, 1]));
 
 function maxStockProfit(stockPrices) {
   let pairs = minMaxPairs(stockPrices);
