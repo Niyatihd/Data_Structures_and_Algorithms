@@ -50,3 +50,5 @@ function getProductsOfAllIntsExceptAtIndex(arr) {
 // *-------------*
 const test = [1, 7, 3, 4];
 console.log(getProductsOfAllIntsExceptAtIndex(test));
+const test1 = [1, 0, 3, 4, 10];
+console.log(getProductsOfAllIntsExceptAtIndex(test1));
