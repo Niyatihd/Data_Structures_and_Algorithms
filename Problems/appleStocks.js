@@ -7,6 +7,9 @@
 // No "shorting"—
 // you need to buy before you can sell.Also, you can 't buy and sell in the same time step—at least 1 minute has to pass.
 
+// *-------------*
+// Option#1: Does not show negative profit
+// *-------------*
 function minMaxPairs(stockPrices) {
   let minMaxPairs = [];
   let min = stockPrices[0];
@@ -36,6 +39,8 @@ function minMaxPairs(stockPrices) {
   return minMaxPairs;
 }
 
+// console.log(minMaxPairs([5, 3, 1]));
+
 function maxStockProfit(stockPrices) {
   let pairs = minMaxPairs(stockPrices);
   let maxDiff = 0;
@@ -59,11 +64,42 @@ function maxStockProfit(stockPrices) {
 // Time complexity = O(n)
 // Space complexity = O(n)
 
+
+// *-------------*
+// Option#2: shows negative profit
+// *-------------*
+
+function maxStockProfit2(stockPrices) {
+  let min = stockPrices[0];
+  let maxProfit = stockPrices[1] - stockPrices[0];
+
+  for (let i = 1; i < stockPrices.length; i++) {
+    let currPrice = stockPrices[i];
+    let currProfit = currPrice - min;
+
+    if (maxProfit < currProfit) {
+      maxProfit = currProfit;
+    }
+
+    min = Math.min(min, currPrice);
+  }
+
+  return maxProfit;
+}
+
 // *-------------*
 //   TEST CASES
 // *-------------*
 const stockPrices = [10, 7, 5, 8, 11, 9];
 const stockPrices2 = [3, 5, 4, 3, 2, 6, 1];
+const stockPrices3 = [5, 3, 1];
+const stockPrices4 = [5, 3, 2, 1];
 
-console.log(maxStockProfit(stockPrices)); // => 6
-console.log(maxStockProfit(stockPrices2)); // => 4
+// console.log(maxStockProfit(stockPrices)); // => 6
+// console.log(maxStockProfit(stockPrices2)); // => 4
+// console.log(maxStockProfit(stockPrices3)); // => 
+// console.log(getMaxProfit(stockPrices3)); // => 
+console.log(maxStockProfit2(stockPrices)); // => 6
+console.log(maxStockProfit2(stockPrices2)); // => 4
+console.log(maxStockProfit2(stockPrices3)); // => -2
+console.log(maxStockProfit2(stockPrices4)); // => -1
