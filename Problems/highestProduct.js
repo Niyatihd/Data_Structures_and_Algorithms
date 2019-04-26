@@ -9,8 +9,12 @@
 // min(set) <= next ? 
 // if yes,  delete min, add next => 
 
-function highestProd(arr) {
+function highestProdofThreeInts(arr) {
   let highestNums = new Set([arr[0], arr[1], arr[2]]);
+
+  for (let i = 3; i < arr.length; i++) {
+
+  }
   return highestNums;
 }
 
@@ -18,4 +22,4 @@ function highestProd(arr) {
 //   TEST CASES
 // *-------------*
 const test = [1, 2, 3, 5, 6];
-console.log(highestProd(test));
+console.log(highestProdofThreeInts(test));
