@@ -34,8 +34,8 @@ function highestProdofThreeInts(arr) {
   let highestNums = createHighestNumObj(arr);
   // let highestNums = arr.slice(0, 3);
   // let highestNums = new Set([arr[0], arr[1], arr[2]]);
-  console.log("highestNums: ");
-  console.log(highestNums);
+  // console.log("highestNums: ");
+  // console.log(highestNums);
 
   for (let i = 3; i < arr.length; i++) {
     if (highestNums[3] < arr[i]) {
@@ -47,16 +47,22 @@ function highestProdofThreeInts(arr) {
     }
 
     highestNums = createHighestNumObj(Object.values(highestNums));
-    console.log("highestNums: ");
-    console.log(highestNums);
+    // console.log("highestNums: ");
+    // console.log(highestNums);
   }
 
-  console.log("Final highestNums: ");
-  console.log(highestNums);
+  // console.log("Final highestNums: ");
+  // console.log(highestNums);
 
   let result = highestNums[1] * highestNums[2] * highestNums[3];
   return result;
 }
+
+// *-------------*
+// Analysis: 
+// *-------------*
+// Time complexity = O(n)
+// Space complexity = O(n)
 
 // *-------------*
 //   TEST CASES
