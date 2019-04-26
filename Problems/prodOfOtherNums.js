@@ -5,21 +5,42 @@
 // Here 's the catch: You can't use division in your solution!
 
 function getProductsOfAllIntsExceptAtIndex(arr) {
-  let result = arr;
+  let result = arr.slice(0);
   let prevProd = 1;
 
   for (let i = 0; i < result.length; i++) {
     let ele = arr[i];
 
     if (i === 0) {
-      prevProd *= result[i];
+      prevProd *= ele;
       result[i] = 1;
     } else {
-      let temp = result[i];
+      let temp = ele;
       result[i] = prevProd;
+      prevProd *= temp;
+    }
+  }
+
+  prevProd = 1;
+
+  for (let i = result.length - 1; i >= 0; i--) {
+    let ele = arr[i];
+
+    if (i === result.length - 1) {
+      prevProd *= ele;
+      continue;
+    } else {
+      let temp = ele;
+      result[i] *= prevProd;
       prevProd *= temp;
     }
   }
 
   return result;
 }
+
+// *-------------*
+//   TEST CASES
+// *-------------*
+const test = [1, 7, 3, 4];
+console.log(getProductsOfAllIntsExceptAtIndex(test));
