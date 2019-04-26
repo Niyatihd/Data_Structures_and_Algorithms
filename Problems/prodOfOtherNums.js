@@ -10,30 +10,16 @@ function getProductsOfAllIntsExceptAtIndex(arr) {
 
   for (let i = 0; i < result.length; i++) {
     let ele = arr[i];
-
-    if (i === 0) {
-      prevProd *= ele;
-      result[i] = 1;
-    } else {
-      let temp = ele;
-      result[i] = prevProd;
-      prevProd *= temp;
-    }
+    result[i] = prevProd;
+    prevProd *= ele;
   }
 
   prevProd = 1;
 
   for (let i = result.length - 1; i >= 0; i--) {
     let ele = arr[i];
-
-    if (i === result.length - 1) {
-      prevProd *= ele;
-      continue;
-    } else {
-      let temp = ele;
-      result[i] *= prevProd;
-      prevProd *= temp;
-    }
+    result[i] *= prevProd;
+    prevProd *= ele;
   }
 
   return result;
