@@ -40,6 +40,12 @@ function getProductsOfAllIntsExceptAtIndex(arr) {
 }
 
 // *-------------*
+// Analysis: 
+// *-------------*
+// Time complexity = O(n)
+// Space complexity = O(n)
+
+// *-------------*
 //   TEST CASES
 // *-------------*
 const test = [1, 7, 3, 4];
