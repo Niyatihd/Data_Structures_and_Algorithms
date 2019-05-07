@@ -18,7 +18,7 @@ function reverseInt(num) {
   if (n < 10) return n;
 
   while (n) {
-    if (n < 9) {
+    if (n <= 9) {
       digits.push(n);
       break;
     }
@@ -29,6 +29,8 @@ function reverseInt(num) {
   }
 
   let result = parseInt(digits.join(""));
+  if (result < Math.pow(-2, 31) || result > Math.pow(2, 31) - 1) return 0;
+
   return num < 0 ? result * -1 : result;
 }
 
@@ -41,10 +43,15 @@ function reverseInt(num) {
 // *-------------*
 //   TEST CASES
 // *-------------*
-// const num = 123;
-// const num = -123;
-// const num = 120;
-const num = 0;
+const num0 = 123;
+const num3 = -123;
+const num4 = 120;
+const num5 = 0;
 const num1 = 900000;
-console.log(reverseInt(num));
+const num2 = 1534236469;
+console.log(reverseInt(num0));
+console.log(reverseInt(num3));
+console.log(reverseInt(num4));
+console.log(reverseInt(num5));
 console.log(reverseInt(num1));
+console.log(reverseInt(num2));
