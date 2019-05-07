@@ -19,6 +19,34 @@ function twoSum(arr, target) {
   }
 }
 
+//Set only stores unique values so this solution does not work.
+function twoSum2(arr, target) {
+  let tempSet = new Set(arr);
+  let result = [];
+  let ele2;
+  // console.log(tempSet); //Set only stores unique values so this solution does not work.
+
+  // for (let i = 0; i < arr.length; i++) {
+  //   let diff = target - arr[i];
+  //   tempSet.delete(arr[i]);
+
+  //   if (tempSet.has(diff)) {
+  //     console.log("in");
+  //     result.push(i);
+  //     ele2 = diff;
+  //     break;
+  //   }
+  // }
+
+  // for (let j = arr.length - 1; j >= 0; j--) {
+  //   if (arr[j] === ele2) {
+  //     result.push(j);
+  //   }
+  // }
+
+  // return result;
+}
+
 // *-------------*
 // Analysis:
 // *-------------*
@@ -28,6 +56,9 @@ function twoSum(arr, target) {
 // *-------------*
 //   TEST CASES
 // *-------------*
-const nums = [2, 7, 11, 15];
-const target = 9;
+// const nums = [2, 7, 11, 15];
+// const target = 9;
+const nums = [3, 3];
+const target = 6;
 console.log(twoSum(nums, target));
+console.log(twoSum2(nums, target));
