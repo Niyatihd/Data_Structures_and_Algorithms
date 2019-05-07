@@ -19,6 +19,13 @@ function twoSum(arr, target) {
   }
 }
 
+// *-------------*
+// Analysis:
+// *-------------*
+// Time complexity = O(n^2)
+// Space complexity = O(1)
+
+// *--------------------------------------------------------------------------*
 //Set only stores unique values so this solution does not work.
 function twoSum2(arr, target) {
   let tempSet = new Set(arr);
@@ -47,11 +54,29 @@ function twoSum2(arr, target) {
   // return result;
 }
 
+// *--------------------------------------------------------------------------*
+function twoSum3(arr, target) {
+  let obj = {}; //ele: idx
+
+  for (let i = 0; i < arr.length; i++) {
+    let ele = arr[i];
+    let diff = target - ele;
+    // console.log(obj);
+    // console.log("diff: " + diff);
+
+    if (obj[diff] >= 0) {
+      return [obj[diff], i];
+    } else {
+      obj[ele] = i;
+    }
+  }
+}
+
 // *-------------*
 // Analysis:
 // *-------------*
-// Time complexity = O(n^2)
-// Space complexity = O(1)
+// Time complexity = O(n)
+// Space complexity = O(n)
 
 // *-------------*
 //   TEST CASES
@@ -61,4 +86,4 @@ function twoSum2(arr, target) {
 const nums = [3, 3];
 const target = 6;
 console.log(twoSum(nums, target));
-console.log(twoSum2(nums, target));
+console.log(twoSum3(nums, target));
