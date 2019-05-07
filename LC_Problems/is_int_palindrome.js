@@ -15,18 +15,19 @@
 
 function digitsArr(int) {
   let arr = int < 0 ? ["*"] : [];
+  let num = Math.abs(int);
 
-  if (int < 10) return [int];
+  if (num < 10) return [num];
 
-  while (int) {
-    if (int < 10) {
-      arr.push(int);
+  while (num) {
+    if (num < 10) {
+      arr.push(num);
       break;
     }
 
-    let rem = int % 10;
+    let rem = num % 10;
     arr.push(rem);
-    rem = (int - rem) / 10;
+    num = (num - rem) / 10;
   }
 
   return arr;
@@ -34,5 +35,29 @@ function digitsArr(int) {
 
 console.log(digitsArr(121));
 console.log(digitsArr(-121));
+console.log(digitsArr(10));
 
-function isPalindrome(int) {}
+function isPalindrome(int) {
+  let digits = digitsArr(int);
+
+  for (let i = 0; i < digits.length / 2; i++) {
+    if (digits[i] !== digits[digits.length - 1 - i]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+// *-------------*
+// Analysis:
+// *-------------*
+// Time complexity = O(n)
+// Space complexity = O(n)
+
+// *-------------*
+//   TEST CASES
+// *-------------*
+console.log(isPalindrome(121));
+console.log(isPalindrome(-121));
+console.log(isPalindrome(10));
