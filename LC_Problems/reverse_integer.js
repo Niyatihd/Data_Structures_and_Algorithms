@@ -15,8 +15,9 @@ function reverseInt(num) {
   //123
   let n = Math.abs(num);
   let digits = [];
+  if (n < 10) return n;
 
-  while (n >= 0) {
+  while (n) {
     if (n < 9) {
       digits.push(n);
       break;
@@ -44,4 +45,6 @@ function reverseInt(num) {
 // const num = -123;
 // const num = 120;
 const num = 0;
+const num1 = 900000;
 console.log(reverseInt(num));
+console.log(reverseInt(num1));
