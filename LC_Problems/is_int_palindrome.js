@@ -15,9 +15,13 @@
 
 function digitsArr(int) {
   let arr = int < 0 ? ["*"] : [];
+  console.log(arr);
   let num = Math.abs(int);
 
-  if (num < 10) return [num];
+  if (num < 10) {
+    arr.push(num);
+    return arr;
+  }
 
   while (num) {
     if (num < 10) {
@@ -33,9 +37,10 @@ function digitsArr(int) {
   return arr;
 }
 
-console.log(digitsArr(121));
-console.log(digitsArr(-121));
-console.log(digitsArr(10));
+// console.log(digitsArr(121));
+// console.log(digitsArr(-121));
+// console.log(digitsArr(10));
+console.log(digitsArr(-1));
 
 function isPalindrome(int) {
   let digits = digitsArr(int);
@@ -58,6 +63,7 @@ function isPalindrome(int) {
 // *-------------*
 //   TEST CASES
 // *-------------*
-console.log(isPalindrome(121));
-console.log(isPalindrome(-121));
-console.log(isPalindrome(10));
+// console.log(isPalindrome(121));
+// console.log(isPalindrome(-121));
+// console.log(isPalindrome(10));
+console.log(isPalindrome(-1));
