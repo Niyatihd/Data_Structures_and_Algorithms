@@ -7,16 +7,20 @@
 function firstUniqChar(s) {
   if (s.length === 0) return -1;
   let count = {};
+  let seen = new Set();
 
   for (let i = 0; i < s.length; i++) {
-    if (count[s[i]]) {
+    if (count[s[i]] >= 0) {
       delete count[s[i]];
-    } else {
+      seen.add(s[i]);
+    } else if (!seen.has(s[i])) {
       count[s[i]] = i;
     }
   }
 
-  return Math.min.apply(null, Object.values(count));
+  if (Object.values(count).length === 0) return -1;
+  let minIdx = Math.min.apply(null, Object.values(count));
+  return minIdx;
 }
 
 // *-------------*
