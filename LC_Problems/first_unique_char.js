@@ -36,3 +36,4 @@ console.log(firstUniqChar("leetcode"));
 console.log(firstUniqChar("loveleetcode"));
 console.log(firstUniqChar(""));
 console.log(firstUniqChar("cc"));
+console.log(firstUniqChar("aadadaad"));
