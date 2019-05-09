@@ -4,7 +4,8 @@
 // s = "leetcode" => return 0.
 // s = "loveleetcode" => return 2.
 
-function firstUniqChar(str) {
+function firstUniqChar(s) {
+  if (s.length === 0) return -1;
   let count = {};
 
   for (let i = 0; i < s.length; i++) {
@@ -15,11 +16,7 @@ function firstUniqChar(str) {
     }
   }
 
-  for (let j = 0; j < Object.keys(count).length; j++) {
-    if (count[Object.keys(count)[j]] === 1) {
-      return Object.keys(count)[j];
-    }
-  }
+  return Math.min.apply(null, Object.values(count));
 }
 
 // *-------------*
@@ -31,4 +28,7 @@ function firstUniqChar(str) {
 // *-------------*
 //   TEST CASES
 // *-------------*
-console.log();
+console.log(firstUniqChar("leetcode"));
+console.log(firstUniqChar("loveleetcode"));
+console.log(firstUniqChar(""));
+console.log(firstUniqChar("cc"));
