@@ -47,7 +47,6 @@ function countingValleys2(str, count) {
   let valleys = 0;
 
   str.split("").forEach(ele => {
-    prevLevel = level;
     level = ele === "U" ? level + 1 : level - 1;
 
     if (level === 0 && ele === "U") valleys += 1;
