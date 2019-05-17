@@ -10,20 +10,25 @@
 // The first line contains a single string,s .
 // The second line contains an integer, n.
 
-function countA(str) {
+function countA(str, maxLen) {
   let count = 0;
 
-  str.split("").forEach(ele => {
-    if (ele === "a") count++;
-  });
+  for (let i = 0; i < maxLen; i++) {
+    if (str[i] === "a") count++;
+  }
 
   return count;
 }
 
 function repeatedString(s, n) {
+  let countOfA = countA(s, s.length);
+  if (countOfA === 0) return 0;
   if (s.length === 1) return n;
+  const multiple = Math.floor(n / s.length);
+  const rem = n % s.length;
+  let remCount = countA(s, rem);
 
-  const strLen = s.length;
+  return countOfA * multiple + remCount;
 }
 
 // *-------------*
@@ -35,4 +40,8 @@ function repeatedString(s, n) {
 // *-------------*
 //   TEST CASES
 // *-------------*
-console.log(countA("abhuahagaba")); // => 5
+// console.log(countA("abhuahagaba")); // => 5
+console.log(repeatedString("abhuahagaba", 23)); //11
+console.log(repeatedString("a", 23)); //23
+console.log(repeatedString("aab", 882787)); //588525
+console.log(repeatedString("x", 970770)); //0
