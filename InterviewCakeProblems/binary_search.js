@@ -9,7 +9,6 @@ function binarySearch(arr, target) {
   let startIdx = 0;
   let endIdx = arr.length - 1;
 
-
   while (endIdx - startIdx >= 0) {
     let mid = startIdx + Math.floor((endIdx - startIdx + 1) / 2);
 
@@ -25,11 +24,9 @@ function binarySearch(arr, target) {
   return null;
 }
 
-// Analysis: 
+// Analysis:
 // Time complexity = O(log(n))
 // Space complexity = O(1)
-
-
 
 // *-------------*
 //   Recursively
@@ -54,7 +51,7 @@ function binarySearchRec(arr, target) {
 }
 
 // *-------------*
-// Analysis: 
+// Analysis:
 // *-------------*
 // Time complexity = O(log(n))
 // Space complexity = O(1)
@@ -62,12 +59,12 @@ function binarySearchRec(arr, target) {
 // *-------------*
 //   TEST CASES
 // *-------------*
-console.log(binarySearch([1, 2, 3, 4, 5], 5)); // => 4 
-console.log(binarySearch([1, 2, 3, 4, 5], 2)); // => 1 
+console.log(binarySearch([1, 2, 3, 4, 5], 5)); // => 4
+console.log(binarySearch([1, 2, 3, 4, 5], 2)); // => 1
 console.log(binarySearch([1, 2, 3, 4, 5], 1)); // => 0
 console.log(binarySearch([1, 2, 3, 4, 5], 9)); // => null
 
-console.log(binarySearchRec([1, 2, 3, 4, 5], 5)); // => 4 
-console.log(binarySearchRec([1, 2, 3, 4, 5], 2)); // => 1 
+console.log(binarySearchRec([1, 2, 3, 4, 5], 5)); // => 4
+console.log(binarySearchRec([1, 2, 3, 4, 5], 2)); // => 1
 console.log(binarySearchRec([1, 2, 3, 4, 5], 1)); // => 0
 console.log(binarySearchRec([1, 2, 3, 4, 5], 9)); // => null

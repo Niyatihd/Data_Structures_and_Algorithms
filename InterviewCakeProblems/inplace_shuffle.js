@@ -10,6 +10,8 @@ function getRandom(floor, ceiling) {
 
 function inPlaceShuffle(arr) {
   //arr = [2,7,4,2,5,6,3]
+  if (arr.length <= 1) return arr;
+
   let pos = 0;
 
   for (let i = 0; i < arr.length; i++) {
