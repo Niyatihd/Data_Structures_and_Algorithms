@@ -29,4 +29,6 @@ function jumpingOnClouds(c) {
 // *-------------*
 //   TEST CASES
 // *-------------*
-console.log(jumpingOnClouds([0, 0, 1, 0, 0, 1, 0]));
+console.log(
+  "Total steps from start to end: " + jumpingOnClouds([0, 0, 1, 0, 0, 1, 0])
+);
