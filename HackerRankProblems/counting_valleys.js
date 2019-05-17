@@ -67,6 +67,7 @@ function countingValleys2(str, count) {
 console.log(
   "The number of valleys visited: " + countingValleys("UDDDUDUUDDUUUUDD", 16)
 );
+
 console.log(
   "The number of valleys visited: " + countingValleys2("UDDDUDUUDDUUUUDD", 16)
 );
