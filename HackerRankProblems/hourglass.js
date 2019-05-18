@@ -37,9 +37,14 @@
 
 //pos=[x,y] => [[x,y], [x, y+1], [x, y+2], [x+1, y+1], [x+2, y], [x+2, y+1], [x+2, y+2]]
 
+// *-------------*
+//    Solution:
+// *-------------*
+//Helper function to sum at each index of arr
 function calculateSum(arr, [x, y]) {
   let sum;
   const hourglassPos = [
+    //arr containing all position of hourglass wrt position [x,y]
     [x, y],
     [x, y + 1],
     [x, y + 2],
@@ -51,22 +56,22 @@ function calculateSum(arr, [x, y]) {
   let elVal;
 
   hourglassPos.forEach(el => {
+    //iteration that sums value at each index of hourglass wrt position [x,y]
     elVal = arr[el[0]][el[1]];
-    // console.log("elVal: " + elVal);
-    sum = sum ? sum + elVal : elVal;
+    sum = sum !== undefined ? sum + elVal : elVal; //if sum is undefined, sets sum to elVal, else sets sum to sumTotal of sum and elVal
   });
 
   return sum;
 }
 
 function hourglassSum(arr) {
-  let maxSum;
+  let maxSum; //tracks maximum sum
   let currSum;
 
   for (let i = 0; i < arr.length - 2; i++) {
     for (let j = 0; j < arr[0].length - 2; j++) {
       currSum = calculateSum(arr, [i, j]);
-      maxSum = maxSum === undefined ? currSum : Math.max(maxSum, currSum);
+      maxSum = maxSum === undefined ? currSum : Math.max(maxSum, currSum); //if maxSum is undefined, sets maxSum to currSum, else compares maxSum to currSum and sets maxvalue to MaxSum
     }
   }
 
@@ -92,4 +97,4 @@ const arr = [
 ];
 // console.log(calculateSum(arr, [0, 0]));
 // console.log(calculateSum(arr, [0, 1]));
-console.log(hourglassSum(arr));
+console.log(hourglassSum(arr)); // => 28
