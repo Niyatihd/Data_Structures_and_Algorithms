@@ -48,16 +48,41 @@ function calculateSum(arr, [x, y]) {
     [x + 2, y + 1],
     [x + 2, y + 2]
   ];
+  let elVal;
 
   hourglassPos.forEach(el => {
-    sum = sum ? sum + arr[el[0]][el[1]] : arr[el[0]][el[1]];
+    elVal = arr[el[0]][el[1]];
+    // console.log("elVal: " + elVal);
+    sum = sum ? sum + elVal : elVal;
   });
 
   return sum;
 }
 
+function hourglassSum(arr) {
+  let maxSum;
+  let currSum;
+
+  for (let i = 0; i < arr.length - 2; i++) {
+    for (let j = 0; j < arr[0].length - 2; j++) {
+      currSum = calculateSum(arr, [i, j]);
+      maxSum = maxSum === undefined ? currSum : Math.max(maxSum, currSum);
+    }
+  }
+
+  return maxSum;
+}
+
+// *-------------*
+// Analysis:
+// *-------------*
+// Time complexity = O(n^2)
+// Space complexity = O(1)
+
+// *-------------*
+//   TEST CASES
+// *-------------*
 const arr = [
-  [0, 1, 2, 3, 4, 5],
   [-9, -9, -9, 1, 1, 1],
   [0, -9, 0, 4, 3, 2],
   [-9, -9, -9, 1, 2, 3],
@@ -65,16 +90,6 @@ const arr = [
   [0, 0, 0, -2, 0, 0],
   [0, 0, 1, 2, 4, 0]
 ];
-console.log(calculateSum(arr, [0, 0]));
-
-function hourglassSum(arr) {}
-
-// *-------------*
-// Analysis:
-// *-------------*
-// Time complexity = O(n)
-// Space complexity = O(1)
-
-// *-------------*
-//   TEST CASES
-// *-------------*
+// console.log(calculateSum(arr, [0, 0]));
+// console.log(calculateSum(arr, [0, 1]));
+console.log(hourglassSum(arr));
