@@ -11,7 +11,7 @@ function pairOfSocks(n, arr) {
   let pairs = 0;
 
   arr.forEach(element => {
-    if (count[element]) {
+    if (count[element] === undefined) {
       count[element] -= 1;
       pairs += 1;
     } else {

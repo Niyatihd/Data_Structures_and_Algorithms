@@ -23,7 +23,9 @@ function countA(str, maxLen) {
 function repeatedString(s, n) {
   let countOfA = countA(s, s.length);
   if (countOfA === 0) return 0;
+
   if (s.length === 1) return n;
+
   const multiple = Math.floor(n / s.length);
   const rem = n % s.length;
   let remCount = countA(s, rem);

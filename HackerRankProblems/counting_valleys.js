@@ -13,7 +13,7 @@
 // Option#1
 // *-------------*
 function countingValleys(str, count) {
-  let prevLevel = 0;
+  let prevLevel;
   let feature;
   let level = 0;
   const featureCount = { mountain: 0, valley: 0 };
