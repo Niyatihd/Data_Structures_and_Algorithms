@@ -10,3 +10,54 @@
 // Each of the next t pairs of lines are as follows:
 // - The first line contains an integer t, the number of people in the queue
 //   - The second line has n space - separated integers describing the final state of the queue.
+
+// *-------------*
+//    Option#1
+// *-------------*
+function countBribedPlaces(q, idx) {
+  let bribedCount = 0;
+
+  for (let i = idx + 1; i < q.length; i++) {
+    //Iterate from current index till end of the q to count values smaller than at i
+    if (q[i] < q[idx]) {
+      bribedCount++;
+    }
+  }
+
+  return bribedCount;
+}
+
+function minimumBribes(q) {
+  let minBribes = 0;
+  let currBribe;
+
+  for (let i = 0; i < q.length; i++) {
+    currBribe = countBribedPlaces(q, i); //count values smaller than value at i
+
+    if (currBribe > 2) {
+      //if bribed more than twice, return "Too chaotic"
+      return "Too chaotic";
+    } else {
+      minBribes += currBribe;
+    }
+  }
+
+  return minBribes;
+}
+
+// *-------------*
+// Analysis:
+// *-------------*
+// Time complexity = O(n)
+// Space complexity = O(n)
+
+// *-------------*
+//   TEST CASES
+// *-------------*
+const q = [2, 1, 5, 3, 4];
+const q1 = [2, 5, 1, 3, 4];
+// const q = [5, 1, 2, 3, 7, 8, 6, 4];
+// const q = [1, 2, 5, 3, 7, 8, 6, 4];
+// console.log(countBribedPlaces(q, 1));
+console.log(minimumBribes(q));
+console.log(minimumBribes(q1));
