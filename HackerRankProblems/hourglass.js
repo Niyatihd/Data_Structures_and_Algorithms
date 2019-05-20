@@ -69,6 +69,7 @@ function hourglassSum(arr) {
   let currSum;
 
   for (let i = 0; i < arr.length - 2; i++) {
+    //Only Iterate till the index at which hourglass has possible indices around, therefore, arr.length - 2
     for (let j = 0; j < arr[0].length - 2; j++) {
       currSum = calculateSum(arr, [i, j]);
       maxSum = maxSum === undefined ? currSum : Math.max(maxSum, currSum); //if maxSum is undefined, sets maxSum to currSum, else compares maxSum to currSum and sets maxvalue to MaxSum
