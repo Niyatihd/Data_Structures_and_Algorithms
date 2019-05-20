@@ -35,7 +35,7 @@ function rotLeft(a, d) {
 // *-------------*
 function rotLeft2(a, d) {
   const aLen = a.length;
-  const aCopy = a.slice(0);
+  const aCopy = a.slice(0); //make a copy to save actual values at each index before mutation
   let shiftIdx;
 
   for (let i = 0; i < a.length; i++) {
