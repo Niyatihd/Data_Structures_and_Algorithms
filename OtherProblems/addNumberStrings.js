@@ -32,6 +32,10 @@ class SumNumberStrings {
     let el1, el2, currSum;
 
     for (let i = 0; i < this.longer.length; i++) {
+      if (this.longer[i] === ".") {
+        sumResultArray.push(".");
+        continue;
+      }
       el1 = parseInt(this.longer[i]);
       el2 = parseInt(this.shorter[i]);
 
@@ -52,12 +56,14 @@ class SumNumberStrings {
         }
       }
     }
+    console.log(sumResultArray);
     return sumResultArray;
   }
 
   addStrings() {
     this.longerString();
     this.shorterString();
+    console.log(this.getSum());
     this.sumResult = this.getSum()
       .reverse()
       .join("");
@@ -84,6 +90,7 @@ class SumNumberStrings {
 // *-------------*
 
 let test = new SumNumberStrings((s1 = "287674675"), (s2 = "6565247538"));
+let test1 = new SumNumberStrings((s1 = "23.5"), (s2 = "6.0"));
 // let test = new SumNumberStrings((s1 = "67512"), (s2 = "7538"));
 // test.longerString();
 // console.log(test.longer);
@@ -92,3 +99,4 @@ let test = new SumNumberStrings((s1 = "287674675"), (s2 = "6565247538"));
 // console.log(287674675 + 6565247538);
 // console.log(test.addStrings());
 console.log(test.sumResult());
+console.log(test1.sumResult());

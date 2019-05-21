@@ -18,7 +18,8 @@ function findDuplicate(arr) {
     seen.add(arr[i]);
   }
 
-  throw new Error("No duplicates!");
+  return "Error: No duplicates!!";
+  // throw new Error("No duplicates!");
 }
 
 // *-------------*
