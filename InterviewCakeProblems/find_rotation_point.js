@@ -36,6 +36,7 @@ function findRotationPoint(arr) {
     }
 
     if (start + 1 === end && end === arr.length - 1) {
+      //Bonus, if arr is already rotated, return 0
       return 0;
     } else if (start + 1 === end) {
       break;
