@@ -23,40 +23,9 @@ function findRotationPoint(arr) {
   let mid;
 
   while (end - start >= 0) {
-    console.log("start: " + start);
-    console.log("end: " + end);
+    //tweaked binary search to search the rotation
     mid = Math.floor(start + (end - start + 1) / 2);
-
-    // mid = Math.floor(start + (end - start) / 2);
-    console.log("mid: " + mid);
-
-    if (arr[mid] >= first) {
-      //move right
-      start = mid;
-    } else {
-      //move left
-      end = mid;
-    }
-
-    if (start + 1 === end) {
-      break;
-    }
-  }
-  return end;
-}
-function findRotationPoint2(arr) {
-  const first = arr[0];
-  let start = 0;
-  let end = arr.length - 1;
-  let mid;
-
-  while (end - start >= 0) {
-    console.log("start: " + start);
-    console.log("end: " + end);
-    // mid = Math.floor(start + (end - start + 1) / 2);
-
-    mid = Math.floor(start + (end - start) / 2);
-    console.log("mid: " + mid);
+    // mid = Math.floor(start + (end - start) / 2); // both works
 
     if (arr[mid] >= first) {
       //move right
