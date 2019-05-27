@@ -132,10 +132,39 @@ class LinkedList {
   }
 
   // TODO: Implement the get method here
-  get(index) {}
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+
+    let current = this.head;
+    let currIdx = 0;
+
+    while (current) {
+      if (currIdx === index) return current;
+      current = current.next;
+      currIdx++;
+    }
+
+    return null;
+  }
 
   // TODO: Implement the set method here
-  set(index, val) {}
+  set(index, val) {
+    if (index < 0 || index >= this.length) return false;
+
+    let current = this.head;
+    let currIdx = 0;
+
+    while (current) {
+      if (currIdx === index) {
+        current.value = val;
+        return true;
+      }
+      current = current.next;
+      currIdx++;
+    }
+
+    return false;
+  }
 
   // TODO: Implement the insert method here
   insert(index, val) {}
