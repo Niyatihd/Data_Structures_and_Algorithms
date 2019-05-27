@@ -191,10 +191,23 @@ class LinkedList {
   }
 
   // TODO: Implement the remove method here
-  remove(index) {}
+  remove(index) {
+    if (index < 0 || index >= this.length) return undefined;
+    if (index === 0) return this.removeHead();
+    if (index === this.length - 1) return this.removeTail();
+
+    const prevNode = this.get(index - 1);
+    const removed = prevNode.next;
+    const nextNode = removed.next;
+    prevNode.next = nextNode;
+    this.length--;
+    return removed;
+  }
 
   // TODO: Implement the size method here
-  size() {}
+  size() {
+    return this.length;
+  }
 }
 
 const x = new LinkedList();
