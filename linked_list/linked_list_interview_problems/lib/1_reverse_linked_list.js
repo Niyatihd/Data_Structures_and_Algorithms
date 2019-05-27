@@ -94,13 +94,43 @@ class LinkedList {
 // -----------
 function reverseLinkedList(linkedList) {
   // TODO: Implement the reverseLinkedList function!
-  let currNode = linkedList.head;
+  let llHead = linkedList.head;
+  let llTail = linkedList.tail;
+  let currNode = llHead;
   let prevNode = null;
   let nextNode = null;
 
-  while (currNode.next) {}
+  while (currNode) {
+    nextNode = currNode.next;
+    currNode.next = prevNode;
+    prevNode = currNode;
+    currNode = nextNode;
+  }
 
-  // return linkedList;
+  linkedList.head = llTail;
+  linkedList.tail = llHead;
+  return linkedList;
+}
+
+function reverseLinkedList2(linkedList) {
+  //First → Second → Third → Fourth → Fifth → null
+  // TODO: Implement the reverseLinkedList function!
+  let node = linkedList.head; //First
+  let first = node; //First
+  let next = null;
+  let prev = null;
+
+  while ((next = node.next)) {
+    node.next = prev;
+    prev = node;
+    node = next;
+  }
+
+  linkedList.head = node;
+  linkedList.head.next = prev;
+  linkedList.tail = first;
+
+  return linkedList;
 }
 
 const linkedList = new LinkedList();
@@ -109,7 +139,14 @@ linkedList.addToTail("Second");
 linkedList.addToTail("Third");
 linkedList.addToTail("Fourth");
 linkedList.addToTail("Fifth");
+const linkedList2 = new LinkedList();
+linkedList2.addToTail("First");
+linkedList2.addToTail("Second");
+linkedList2.addToTail("Third");
+linkedList2.addToTail("Fourth");
+linkedList2.addToTail("Fifth");
 console.log(reverseLinkedList(linkedList));
+console.log(reverseLinkedList2(linkedList2));
 // console.log("whatever");
 
 exports.Node = Node;
