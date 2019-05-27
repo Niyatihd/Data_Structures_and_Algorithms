@@ -149,25 +149,46 @@ class LinkedList {
 
   // TODO: Implement the set method here
   set(index, val) {
-    if (index < 0 || index >= this.length) return false;
-
-    let current = this.head;
-    let currIdx = 0;
-
-    while (current) {
-      if (currIdx === index) {
-        current.value = val;
-        return true;
-      }
-      current = current.next;
-      currIdx++;
+    //Efficient
+    const foundNode = this.get(index);
+    if (foundNode !== null) {
+      foundNode.value = val;
+      return true;
     }
-
     return false;
+
+    //Bruteforce
+    // if (index < 0 || index >= this.length) return false;
+
+    // let current = this.head;
+    // let currIdx = 0;
+
+    // while (current) {
+    //   if (currIdx === index) {
+    //     current.value = val;
+    //     return true;
+    //   }
+    //   current = current.next;
+    //   currIdx++;
+    // }
+
+    // return false;
   }
 
   // TODO: Implement the insert method here
-  insert(index, val) {}
+  insert(index, val) {
+    if (index < 0 || index >= this.length) return false;
+    if (index === 0) return this.addToHead(val);
+    if (index === this.length) return this.addToHead(val);
+
+    const newNode = new Node(val);
+    const prevNode = this.get(index - 1);
+    const nodeAtIndex = prevNode.next;
+    prevNode.next = newNode;
+    newNode.next = nodeAtIndex;
+    this.length++;
+    return true;
+  }
 
   // TODO: Implement the remove method here
   remove(index) {}
