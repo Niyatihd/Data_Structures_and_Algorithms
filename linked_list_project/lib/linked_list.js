@@ -55,7 +55,7 @@ class LinkedList {
   // TODO: Implement the removeTail method here
   //check conditions:
   // 1. no head,
-  // 2. only head and tail
+  // 2. only head and tail , length === 0
   // 3. head, tail and nodes between them
   removeTail() {
     if (!this.head) return undefined;
@@ -71,17 +71,65 @@ class LinkedList {
     this.tail.next = null;
     this.length--;
 
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+
     return current;
   }
 
   // TODO: Implement the addToHead method here
-  addToHead(val) {}
+  // no head => this.head, this.tail = newNode, l++
+  // only head and tail => newNode.next = this.head, this.head = newNode
+  // nodes between H and T =>
+  addToHead(val) {
+    const newNode = new Node(val);
+
+    if (!this.head) {
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+    }
+
+    this.head = newNode;
+    this.length++;
+
+    return this;
+  }
 
   // TODO: Implement the removeHead method here
-  removeHead() {}
+  // 1. no head => undefined
+  // 2. only H & T => head, tail = null
+  // 3. nodes bet H & T => this.head = this.head.next
+  removeHead() {
+    if (!this.head) return undefined;
+    const current = this.head;
+
+    if (this.head.next !== null) {
+      this.head = this.head.next;
+    }
+    this.length--;
+
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+
+    return current;
+  }
 
   // TODO: Implement the contains method here
-  contains(target) {}
+  contains(target) {
+    let current = this.head;
+
+    while (current) {
+      if (current.value === target) return true;
+      current = current.next;
+    }
+
+    return false;
+  }
 
   // TODO: Implement the get method here
   get(index) {}
