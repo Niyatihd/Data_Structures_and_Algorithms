@@ -1,38 +1,6 @@
 // ============================================================================
 // Interview Problem: Reverse a Linked List
 // ============================================================================
-
-// ----------------------------------------
-// Given: Singly Linked List - Do Not Edit!
-// ----------------------------------------
-class Node {
-  constructor(val) {
-    this.value = val;
-    this.next = null;
-  }
-}
-
-class LinkedList {
-  constructor() {
-    this.head = null;
-    this.tail = null;
-    this.length = 0;
-  }
-
-  addToTail(val) {
-    const newNode = new Node(val);
-
-    if (!this.head) {
-      this.head = newNode;
-    } else {
-      this.tail.next = newNode;
-    }
-
-    this.tail = newNode;
-    this.length++;
-    return this;
-  }
-}
 //
 // -------
 // Prompt:
@@ -70,11 +38,11 @@ class LinkedList {
 // --------
 //
 // const linkedList = new LinkedList();
-// linkedList.addToTail("First");
-// linkedList.addToTail("Second");
-// linkedList.addToTail("Third");
-// linkedList.addToTail("Fourth");
-// linkedList.addToTail("Fifth");
+// linkedList.addToTail('First');
+// linkedList.addToTail('Second');
+// linkedList.addToTail('Third');
+// linkedList.addToTail('Fourth');
+// linkedList.addToTail('Fifth');
 //
 // Current List:  First → Second → Third → Fourth → Fifth → null
 //
@@ -93,24 +61,57 @@ class LinkedList {
 // Let's code!
 // -----------
 function reverseLinkedList(linkedList) {
+  //First → Second → Third → Fourth → Fifth → null
   // TODO: Implement the reverseLinkedList function!
-  let currNode = linkedList.head;
-  let prevNode = null;
-  let nextNode = null;
+  let node = linkedList.head; //First
+  let first = node; //First
+  let next = null;
+  let prev = null;
 
-  while (currNode.next) {}
+  while ((next = node.next)) {
+    node.next = prev;
+    prev = node;
+    node = next;
+  }
 
-  // return linkedList;
+  linkedList.head = node;
+  linkedList.head.next = prev;
+  linkedList.tail = first;
+
+  return linkedList;
 }
 
-const linkedList = new LinkedList();
-linkedList.addToTail("First");
-linkedList.addToTail("Second");
-linkedList.addToTail("Third");
-linkedList.addToTail("Fourth");
-linkedList.addToTail("Fifth");
-console.log(reverseLinkedList(linkedList));
-// console.log("whatever");
+// ----------------------------------------
+// Given: Singly Linked List - Do Not Edit!
+// ----------------------------------------
+class Node {
+  constructor(val) {
+    this.value = val;
+    this.next = null;
+  }
+}
+
+class LinkedList {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
+  }
+
+  addToTail(val) {
+    const newNode = new Node(val);
+
+    if (!this.head) {
+      this.head = newNode;
+    } else {
+      this.tail.next = newNode;
+    }
+
+    this.tail = newNode;
+    this.length++;
+    return this;
+  }
+}
 
 exports.Node = Node;
 exports.LinkedList = LinkedList;
