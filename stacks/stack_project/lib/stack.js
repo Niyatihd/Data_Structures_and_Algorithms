@@ -37,13 +37,13 @@ class Stack {
     const newNode = new Node(val);
     let temp;
     if (this.top === null) {
-      this.top = newNode;
       this.bottom = newNode;
     } else {
       temp = this.top;
-      this.top = newNode;
-      this.top.next = temp;
+      newNode.next = temp;
     }
+    this.top = newNode;
+
     this.length++;
 
     return this.length;
