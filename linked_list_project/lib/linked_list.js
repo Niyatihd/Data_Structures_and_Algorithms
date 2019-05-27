@@ -38,7 +38,6 @@ class LinkedList {
 
   // TODO: Implement the addToTail method here
   addToTail(val) {
-    let temp;
     const newNode = new Node(val);
 
     if (!this.head) {
@@ -49,11 +48,31 @@ class LinkedList {
 
     this.tail = newNode;
     this.length++;
+
     return this;
   }
 
   // TODO: Implement the removeTail method here
-  removeTail() {}
+  //check conditions:
+  // 1. no head,
+  // 2. only head and tail
+  // 3. head, tail and nodes between them
+  removeTail() {
+    if (!this.head) return undefined;
+
+    let current = this.head;
+    let newTail = current;
+    while (current.next !== null) {
+      newTail = current;
+      current = current.next;
+    }
+
+    this.tail = newTail;
+    this.tail.next = null;
+    this.length--;
+
+    return current;
+  }
 
   // TODO: Implement the addToHead method here
   addToHead(val) {}
@@ -79,6 +98,19 @@ class LinkedList {
   // TODO: Implement the size method here
   size() {}
 }
+
+const x = new LinkedList();
+// x.head = new Node("A");
+x.addToTail("A");
+x.addToTail("B");
+x.addToTail("C");
+x.addToTail("D");
+
+console.log("x: ");
+console.log(x);
+console.log("x.head.next: ");
+console.log(x.head.next);
+console.log("x.length: " + x.length);
 
 exports.Node = Node;
 exports.LinkedList = LinkedList;
