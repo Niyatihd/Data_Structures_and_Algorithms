@@ -37,6 +37,8 @@ function isAnagram(s1, s2) {
   const charMap = {};
   // console.log("s1: ");
   // console.log(s1);
+  // console.log("s2: ");
+  // console.log(s2);
 
   s1.split("").forEach(char => {
     if (charMap[char] === undefined) {
@@ -49,10 +51,14 @@ function isAnagram(s1, s2) {
   for (let i = 0; i < s2.length; i++) {
     if (charMap[s2[i]] === undefined) {
       return false;
+    } else {
+      charMap[s2[i]]--;
     }
   }
 
-  return true;
+  let charMapVals = Object.values(charMap);
+  let result = charMapVals.filter((c, i) => c !== 0).length;
+  return result === 0;
 }
 
 function countAnagrams(i, substrings) {
@@ -65,6 +71,9 @@ function countAnagrams(i, substrings) {
   substringsSlice.forEach((str, idx) => {
     if (str.length === currSubstr.length && isAnagram(str, currSubstr)) {
       count++;
+      // console.log("str: " + str);
+      // console.log("currSubstr: " + currSubstr);
+      // console.log("count: " + count);
     }
   });
 
@@ -80,6 +89,8 @@ function sherlockAndAnagrams(s) {
 
   for (let i = 0; i < substrings.length; i++) {
     currAnagramCount = countAnagrams(i, substrings);
+    // console.log("substring: " + substrings[i]);
+    // console.log("currAnagramCount: " + currAnagramCount);
     finalAnagramCount += currAnagramCount;
   }
 
@@ -97,6 +108,10 @@ function sherlockAndAnagrams(s) {
 //   TEST CASES
 // *-------------*
 // console.log(getSubstrings("abcdea"));
-// console.log(isAnagram("abe", "bca"));
+// console.log(isAnagram("fail", "ifai"));
 // console.log(countAnagrams(0, ["bea", "bca", "abe", "eba"]));
 console.log(sherlockAndAnagrams("kkkk")); //=> 10
+console.log(sherlockAndAnagrams("ifailuhkqq")); //=> 3
+console.log(sherlockAndAnagrams("cdcd")); //=> 5
+console.log(sherlockAndAnagrams("abba")); //=> 4
+console.log(sherlockAndAnagrams("abcd")); //=> 0
