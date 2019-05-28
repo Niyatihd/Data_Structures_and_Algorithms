@@ -13,8 +13,12 @@ function twoStrings(s1, s2) {
   if (s1.length >= s2.length) {
     shorterStr = s2;
     longerStr = s1;
+  } else {
+    shorterStr = s1;
+    longerStr = s2;
   }
-  const shorterStrSet = new Set(shorterStr.split(""));
+
+  const shorterStrSet = new Set(shorterStr.split("")); //HERE IT'S OK IF SET IGNORES DUPLICATE VALUES AS WE ESSENTIALLY WANT TO CHECK EVEN IF 1 INSTANCE OF THAT CHARACTER MATCHES
 
   for (let i = 0; i < longerStr.length; i++) {
     char = longerStr[i];
@@ -36,4 +40,7 @@ function twoStrings(s1, s2) {
 // *-------------*
 //   TEST CASES
 // *-------------*
-console.log(twoStrings("a", "abc"));
+console.log(twoStrings("a", "abc")); // => "YES"
+console.log(twoStrings("hello", "world")); // => "YES"
+console.log(twoStrings("hi", "world")); // => "NO"
+console.log(twoStrings("bac", "b")); // => "YES"
