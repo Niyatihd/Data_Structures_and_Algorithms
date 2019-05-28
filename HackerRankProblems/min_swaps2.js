@@ -36,7 +36,7 @@ function minimumSwaps(arr) {
     el = arr[i];
     //each element should be at `el - minVal` position in sorted array
     sortedIdx = el - minVal;
-    console.log(arr);
+    // console.log(arr);
     if (i !== sortedIdx) {
       temp = arr[i];
       arr[i] = arr[sortedIdx];
@@ -53,8 +53,8 @@ function minimumSwaps(arr) {
 // *-------------*
 // Analysis:
 // *-------------*
-// Time complexity = O(n)
-// Space complexity = O(1)
+// Time complexity = O(1)
+// Space complexity = O(n)
 
 // *-------------*
 //   TEST CASES
