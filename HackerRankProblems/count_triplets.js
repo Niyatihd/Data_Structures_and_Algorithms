@@ -9,10 +9,31 @@
 // The first line contains two space-separated integers n and r, the size of arr and the common ratio.
 // The next line contains n space-seperated integers arr[i].
 
+//Steps
+// 1. make count obj for each num in arr
+// 2. figure out # of cases based on count
+
+function numCountObj(arr) {
+  const numCount = {};
+
+  arr.forEach(n => {
+    if (numCount[n] === undefined) {
+      numCount[n] = 1;
+    } else {
+      numCount[n] += 1;
+    }
+  });
+
+  return numCount;
+}
+
+function countTriplets(arr, r) {}
+
+console.log(numCountObj("1 3 3 9 27".split(" ")));
 // *-------------*
 // Analysis:
 // *-------------*
-// Time complexity = O(n^2) // 3 3 9 27  [[3,9,27], [3,9,27], [3,9,27], [3,9,27], ]
+// Time complexity = O(n^2) //1 3 3 9 27  [[3,9,27], [3,9,27], [3,9,27], [3,9,27], ]
 // Space complexity = O(n)    2 * 1 * 1 = 2
 
 // *-------------*
