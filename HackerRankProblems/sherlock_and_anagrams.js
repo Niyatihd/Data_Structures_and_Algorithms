@@ -100,8 +100,7 @@ function sherlockAndAnagrams(s) {
 // *-------------*
 // Analysis:
 // *-------------*
-// all operations on stack,
-// Time complexity = O(1)
+// Time complexity = O(n^2)
 // Space complexity = O(n)
 
 // *-------------*
