@@ -27,64 +27,39 @@ function minimumSwaps(arr) {
 
   const minVal = Math.min(...arr);
   let sortedIdx;
-  let swaps;
+  let swaps = 0;
   let temp;
+  let i = 0;
+  let el;
 
-  arr.forEach((el, i) => {
+  while (i < arr.length) {
+    el = arr[i];
     //each element should be at `el - minVal` position in sorted array
     sortedIdx = el - minVal;
+    console.log(arr);
     if (i !== sortedIdx) {
       temp = arr[i];
       arr[i] = arr[sortedIdx];
       arr[sortedIdx] = temp;
       swaps++;
+    } else {
+      i++;
     }
-  });
+  }
 
-  return arr;
+  return swaps;
 }
 
 // *-------------*
 // Analysis:
 // *-------------*
-// Time complexity = O(1)
-// Space complexity = O(n)
+// Time complexity = O(n)
+// Space complexity = O(1)
 
 // *-------------*
 //   TEST CASES
 // *-------------*
-const array1 = [7, 1, 3, 2, 4, 5, 6];
+const array1 = [7, 1, 3, 2, 4, 5, 6]; // => 5
+const array2 = [4, 3, 1, 2]; // => 3
 console.log(minimumSwaps(array1));
-
-// function minimumSwaps(arr) {
-//   // We know that the array will be sequential. So in order to calculate the finalPosition of each value we need to calculate the min value of the array. Next, see the finalPosition calculation.
-
-//   let minValue = Math.min(...arr);
-//   let finalPosition = 0;
-//   let buffer = 0;
-//   let numberSwaps = 0;
-//   let i = 0;
-
-//   // Process every value in the array.
-
-//   while (i < arr.length) {
-//     //Calculate the final finalPosition of each value.
-
-//     finalPosition = arr[i] - minValue;
-
-//     // Check wether the value is in its correct finalPosition. If not, throw (swap) it to its rigthfull position.
-
-//     if (finalPosition != i) {
-//       buffer = arr[i];
-//       arr[i] = arr[finalPosition];
-//       arr[finalPosition] = buffer;
-//       numberSwaps++;
-//     } else {
-//       // If the value is already in its final position, go to the next value.
-
-//       i++;
-//     }
-//   }
-
-//   return numberSwaps;
-// }
+console.log(minimumSwaps(array2));
