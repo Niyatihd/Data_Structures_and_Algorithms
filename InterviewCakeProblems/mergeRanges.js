@@ -150,6 +150,13 @@ function mergeRanges2(arr) {
 }
 
 // *-------------*
+// Analysis:
+// *-------------*
+// Time complexity = O(nlog(n)) + O(n) + O(n) = O(nlgn);
+// If array is pre-sorted, O(n)
+// Space complexity = O(n)
+
+// *-------------*
 //   TEST CASES
 // *-------------*
 const testArr = [
