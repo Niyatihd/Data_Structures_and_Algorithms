@@ -113,15 +113,41 @@ function mergeRanges(objArr) {
 }
 
 // *-------------*
-// option#2
-// *-------------*
-
-// *-------------*
 // Analysis:
 // *-------------*
 // Time complexity = O(nlog(n)) + O(n) = O(nlgn);
 // If array is pre-sorted, O(n)
 // Space complexity = O(n)
+
+// *-------------*
+// option#2
+// *-------------*
+// Notes: .sort() mutates original Array, therefore make copy/deepcopy and then sort
+// for shallow copy, use slice(), for deepcopy use JSON.parse(JSON.stringify(arr))
+function mergeRanges2(arr) {
+  const arrCopy = JSON.parse(JSON.stringify(arr));
+  const sortedArr = arrCopy.sort((a, b) => {
+    return a.startTime - b.startTime;
+  });
+  const merged = [sortedArr[0]];
+  let lastMergedMeeting, currMeeting;
+
+  for (let i = 1; i < sortedArr.length; i++) {
+    lastMergedMeeting = merged[merged.length - 1];
+    currMeeting = sortedArr[i];
+
+    if (lastMergedMeeting.endTime >= currMeeting.startTime) {
+      lastMergedMeeting.endTime = Math.max(
+        lastMergedMeeting.endTime,
+        currMeeting.endTime
+      );
+    } else {
+      merged.push(currMeeting);
+    }
+  }
+
+  return merged;
+}
 
 // *-------------*
 //   TEST CASES
@@ -202,6 +228,12 @@ const testArr5 = [
 ];
 
 // console.log(mergeSort(testArr));
+console.log(mergeRanges(testArr));
+console.log(mergeRanges(testArr2));
+console.log(mergeRanges(testArr3));
+console.log(mergeRanges(testArr4));
+console.log(mergeRanges(testArr5));
+console.log("--------------------");
 console.log(mergeRanges(testArr));
 console.log(mergeRanges(testArr2));
 console.log(mergeRanges(testArr3));
