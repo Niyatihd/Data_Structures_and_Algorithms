@@ -15,7 +15,9 @@
 //   { startTime: 9, endTime: 12 },
 // ]
 
-
+// *-------------*
+// option#1
+// *-------------*
 function mergeSort(arr) {
   // console.log(arr);
   //basecase
@@ -49,7 +51,6 @@ function merge(leftArr, rightArr) {
   return merged.concat(leftArr).concat(rightArr);
 }
 
-
 function mergeRanges(objArr) {
   // Create a deep copy of the meetings array
   const arr = JSON.parse(JSON.stringify(objArr));
@@ -61,7 +62,6 @@ function mergeRanges(objArr) {
 
   // OR
   // const sortedRanges = mergeSort(arr); //returns new array, therefore no need to make deep copy
-
 
   let result = [];
 
@@ -79,15 +79,22 @@ function mergeRanges(objArr) {
     if (start < nextStart && end < nextStart && end < nextEnd) {
       // console.log("1");
       result.push({
-        "startTime": start,
-        "endTime": end
+        startTime: start,
+        endTime: end
       });
       start = nextStart;
       end = nextEnd;
-    } else if (start < nextStart && (end >= nextStart || nextStart - end === 1) && end < nextEnd) {
+    } else if (
+      start < nextStart &&
+      (end >= nextStart || nextStart - end === 1) &&
+      end < nextEnd
+    ) {
       // console.log("2");
       end = nextEnd;
-    } else if (start > nextStart && nextStart > result[result.length - 1]["endTime"]) {
+    } else if (
+      start > nextStart &&
+      nextStart > result[result.length - 1]["endTime"]
+    ) {
       // console.log("3");
       start = nextStart;
 
@@ -98,15 +105,19 @@ function mergeRanges(objArr) {
   }
 
   result.push({
-    "startTime": start,
-    "endTime": end
+    startTime: start,
+    endTime: end
   });
 
   return result;
 }
 
 // *-------------*
-// Analysis: 
+// option#2
+// *-------------*
+
+// *-------------*
+// Analysis:
 // *-------------*
 // Time complexity = O(nlog(n)) + O(n) = O(nlgn);
 // If array is pre-sorted, O(n)
@@ -115,7 +126,8 @@ function mergeRanges(objArr) {
 // *-------------*
 //   TEST CASES
 // *-------------*
-const testArr = [{
+const testArr = [
+  {
     startTime: 0,
     endTime: 1
   },
@@ -134,10 +146,11 @@ const testArr = [{
   {
     startTime: 9,
     endTime: 10
-  },
+  }
 ];
 
-const testArr2 = [{
+const testArr2 = [
+  {
     startTime: 1,
     endTime: 10
   },
@@ -155,29 +168,38 @@ const testArr2 = [{
   }
 ];
 
-const testArr3 = [{
-  startTime: 1,
-  endTime: 3
-}, {
-  startTime: 2,
-  endTime: 4
-}];
+const testArr3 = [
+  {
+    startTime: 1,
+    endTime: 3
+  },
+  {
+    startTime: 2,
+    endTime: 4
+  }
+];
 
-const testArr4 = [{
-  startTime: 1,
-  endTime: 2
-}, {
-  startTime: 2,
-  endTime: 3
-}];
+const testArr4 = [
+  {
+    startTime: 1,
+    endTime: 2
+  },
+  {
+    startTime: 2,
+    endTime: 3
+  }
+];
 
-const testArr5 = [{
-  startTime: 1,
-  endTime: 5
-}, {
-  startTime: 2,
-  endTime: 3
-}];
+const testArr5 = [
+  {
+    startTime: 1,
+    endTime: 5
+  },
+  {
+    startTime: 2,
+    endTime: 3
+  }
+];
 
 // console.log(mergeSort(testArr));
 console.log(mergeRanges(testArr));
