@@ -14,15 +14,9 @@ function containsDuplicate(nums) {
   const countNums = {};
 
   for (let i = 0; i < nums.length; i++) {
-    let currEle = countNums[nums[i]];
-
-    if (currEle === undefined) {
-      currEle = 1;
-    } else {
-      currEle++;
-
-      if (currEle === 2) return true;
-    }
+    countNums[nums[i]] =
+      countNums[nums[i]] === undefined ? 1 : countNums[nums[i]] + 1;
+    if (countNums[nums[i]] === 2) return true;
   }
 
   return false;
