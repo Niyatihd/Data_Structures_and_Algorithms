@@ -5,4 +5,28 @@
 // Follow up:
 // A linked list can be reversed either iteratively or recursively. Could you implement both?
 
-function reverseList(head) {}
+//  * Definition for singly-linked list.
+//  * function ListNode(val) {
+//  *     this.val = val;
+//  *     this.next = null;
+//  * }
+
+function reverseList(head) {
+  let nextHead = null;
+  let temp;
+
+  while (head) {
+    temp = head;
+    head = head.next;
+    temp.next = nextHead;
+    nextHead = temp;
+  }
+
+  return nextHead;
+}
+
+// *-------------*
+// Analysis:
+// *-------------*
+// Time complexity = O(n)
+// Space complexity = O(1)
