@@ -59,6 +59,16 @@ function checkRange2(arr, range) {
     currRange = arr[i]; //[2,4]
     // console.log(currRange);
 
+    //1. newRange merges all other ranges
+    //   if (arr[0][0] > range[0] && arr[arr.length - 1][1] < range[1]) => return newRange
+
+    //2. does merge
+    // minBsearch, maxBsearch both 
+    // 1. within ranges => return i
+    // 2. between ranges => return i
+    //   if (minBsearch || maxBsearch) => merge return merged
+
+
     if (currRange[0] > range[1]) {
       //BEFORE
       arr.splice(i, 0, range);
