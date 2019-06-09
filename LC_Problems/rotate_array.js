@@ -1,7 +1,6 @@
 // Given an array, rotate the array to the right by k steps, where k is non - negative.
 // Example 1:
 // Input: [1, 2, 3, 4, 5, 6, 7] and k = 3
-// Output: [5, 6, 7, 1, 2, 3, 4]
 // Explanation:
 // rotate 1 steps to the right: [7, 1, 2, 3, 4, 5, 6]
 // rotate 2 steps to the right: [6, 7, 1, 2, 3, 4, 5]
@@ -28,9 +27,26 @@ function rotateArray(nums, k) {
 // Analysis:
 // *-------------*
 // Time complexity = O(k)
+// Space complexity = O(n*k)
+
+function rotateArray2(nums, k) {
+  const result = [];
+
+  for (let i = 0; i < nums.length; i++) {
+    nums.unshift(nums.pop());
+  }
+
+  return nums;
+}
+
+// *-------------*
+// Analysis:
+// *-------------*
+// Time complexity = O(k)
 // Space complexity = O(1)
 
 // *-------------*
 //   TEST CASES
 // *-------------*
 console.log(rotateArray([1, 2, 3, 4, 5, 6, 7], 3)); // => [5, 6, 7, 1, 2, 3, 4]
+console.log(rotateArray([-1, -100, 3, 99], 2)); // => [3, 99, -1, -100]
