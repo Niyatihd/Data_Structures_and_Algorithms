@@ -12,6 +12,20 @@
 // Output: 31
 // Explanation: The input binary string 11111111111111111111111111111101 has a total of thirty one '1' bits.
 
-function hammingWeight(num) {
-  return num.toString(2).replace("/0/g", "").length;
+function hammingWeight(n) {
+  // console.log(num.toString(2).replace(/0/g, ""));
+  return n.toString(2).replace(/0/g, "").length;
 }
+
+// *-------------*
+// Analysis:
+// *-------------*
+// Time complexity = O(n)
+// Space complexity = O(n)
+
+// *-------------*
+//   TEST CASES
+// *-------------*
+console.log(hammingWeight(00000000000000000000000000001011)); //=>3
+console.log(hammingWeight(0000000000000000000000001000000011)); //=>1
+console.log(hammingWeight(11111111111111111111111111111101)); //=>31
