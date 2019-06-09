@@ -11,3 +11,7 @@
 // Input: 11111111111111111111111111111101
 // Output: 31
 // Explanation: The input binary string 11111111111111111111111111111101 has a total of thirty one '1' bits.
+
+function hammingWeight(num) {
+  return num.toString(2).replace("/0/g", "").length;
+}
