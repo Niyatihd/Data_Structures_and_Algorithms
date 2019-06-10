@@ -30,23 +30,28 @@ function rotateArray(nums, k) {
 // Space complexity = O(n*k)
 
 function rotateArray2(nums, k) {
-  const result = [];
+  const result = nums.slice(0);
+  let shift;
 
   for (let i = 0; i < nums.length; i++) {
-    nums.unshift(nums.pop());
+    shift = (i + k) % nums.length;
+    result[shift] = nums[i];
   }
 
-  return nums;
+  return result;
 }
 
 // *-------------*
 // Analysis:
 // *-------------*
-// Time complexity = O(k)
-// Space complexity = O(1)
+// Time complexity = O(n)
+// Space complexity = O(n)
 
 // *-------------*
 //   TEST CASES
 // *-------------*
 console.log(rotateArray([1, 2, 3, 4, 5, 6, 7], 3)); // => [5, 6, 7, 1, 2, 3, 4]
 console.log(rotateArray([-1, -100, 3, 99], 2)); // => [3, 99, -1, -100]
+console.log("---------------------");
+console.log(rotateArray2([1, 2, 3, 4, 5, 6, 7], 3)); // => [5, 6, 7, 1, 2, 3, 4]
+console.log(rotateArray2([-1, -100, 3, 99], 2)); // => [3, 99, -1, -100]
